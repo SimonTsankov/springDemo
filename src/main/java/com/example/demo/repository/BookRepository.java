@@ -11,7 +11,8 @@ import java.util.List;
 public interface BookRepository extends JpaRepository<Book, Long> {
 
     List<Book> findByName(String name);
-    List<Book> findAll();
+    List<Book> findByOrderByIdAsc();
     List<Book> findByNameContaining(String name);
-
+    List<Book> findByGenreContaining(String genre);
+    List<Book> findBookByAuthor_NameContaining(String name);
 }

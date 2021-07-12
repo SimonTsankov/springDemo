@@ -15,6 +15,18 @@ public class Author {
     @Column(name="last_name")
     private String lastName;
 
+    @ManyToOne
+    @JoinColumn(name = "address_id")
+    private Address address;
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
     public long getId() {
         return id;
     }

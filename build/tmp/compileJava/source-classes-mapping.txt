@@ -1,0 +1,22 @@
+com/example/demo/model/Address.java
+ com.example.demo.model.Address
+com/example/demo/repository/AddressRepository.java
+ com.example.demo.repository.AddressRepository
+com/example/demo/api/AddressController.java
+ com.example.demo.api.AddressController
+com/example/demo/repository/AuthorRepository.java
+ com.example.demo.repository.AuthorRepository
+com/example/demo/DemoApplication.java
+ com.example.demo.DemoApplication
+com/example/demo/api/AuthorController.java
+ com.example.demo.api.AuthorController
+com/example/demo/model/Book.java
+ com.example.demo.model.Book
+com/example/demo/api/GetDemo.java
+ com.example.demo.api.GetDemo
+com/example/demo/model/Author.java
+ com.example.demo.model.Author
+com/example/demo/repository/BookRepository.java
+ com.example.demo.repository.BookRepository
+com/example/demo/api/BookController.java
+ com.example.demo.api.BookController

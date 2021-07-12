@@ -21,6 +21,12 @@ public class BookController {
         return ResponseEntity.ok("Dope!");
 
     }
+//
+//    @GetMapping(value = "/getLike")
+//    public ResponseEntity<?>getLike(@RequestParam String searched){
+//       List<Book> books = bookRepository.findByName()
+//        // return ResponseEntity.status((HttpStatus) )
+//    }
 
     @PutMapping(value = "/update")
     public ResponseEntity<?> update(@RequestBody Book book) {
@@ -33,7 +39,16 @@ public class BookController {
 
     @GetMapping(value = "/getAll")
     public ResponseEntity<?> findAll() {
-        return ResponseEntity.ok().body(bookRepository.findAll());
+        return ResponseEntity.ok().body(bookRepository.findByOrderByIdAsc());
+    }
+    @GetMapping(value = "/getBookByAuthorName")
+    public ResponseEntity<?> getByAuthor(@RequestParam(value = "name") String name) {
+        return ResponseEntity.ok().body(bookRepository.findBookByAuthor_NameContaining(name));
+    }
+
+    @GetMapping(value = "/getBookByGenre")
+    public ResponseEntity<?> getByGenre(@RequestParam(value = "genre") String genre) {
+        return ResponseEntity.ok().body(bookRepository.findByGenreContaining(genre));
     }
     @GetMapping(value = "/likename")
     public ResponseEntity<?>likeName(@RequestParam(value ="name") String name){
@@ -44,8 +59,16 @@ public class BookController {
     public ResponseEntity<?> findByName(
             @RequestParam(value = "name") String name
     ) {
-        List<Book> bookList = bookRepository.findByName(name);
+        List<Book> bookList = bookRepository.findByNameContaining(name);
         return ResponseEntity.ok().body(bookList);
+    }
+
+    @DeleteMapping(value="/delete")
+    public ResponseEntity<?> delete(@RequestParam (value = "id") Long id) {
+        if(bookRepository.findById(id)!=null) {
+            bookRepository.deleteById(id);
+            return ResponseEntity.ok("Deleted");
+        } else return ResponseEntity.ok("Not deleted");
     }
 
 }

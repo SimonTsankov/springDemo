@@ -1,0 +1,12 @@
+POST http://localhost:8090/api/author/create/name='gay'/lastname='idk'
+
+<> 2021-07-07T162721.404.html
+
+###
+
+POST http://localhost:8090/api/author/create
+
+<> 2021-07-07T162446.404.html
+
+###
+
